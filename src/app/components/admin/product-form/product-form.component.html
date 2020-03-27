@@ -1,0 +1,20 @@
+<form class="form-horizontal">
+  <div class="form-group">
+    <!-- titre/nom -->
+    <label class="form-label" for="input-name">Name</label>
+    <input type="text" class="form-input" placeholder="Name/title" />
+    <!-- prix -->
+    <label class="form-label" for="input-price">Price</label>
+    <input type="text" class="form-input" placeholder="prix" />
+    <!-- categorie -->
+    <select  id="category" class="form-select">
+      <option *ngFor="let category of categories$ | async" [value]="category.$key">{{category.name}}</option>
+    </select>
+
+    <!-- imageURL -->
+
+    <label class="form-label" for="input-image">URL image</label>
+    <input type="URL" class="form-input" placeholder="lien d'image" />
+  </div>
+  <input type="submit"  class="btn btn-primary" value="envoyer">
+</form>
