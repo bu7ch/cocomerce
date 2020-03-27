@@ -1,0 +1,25 @@
+<header class="navbar">
+  <section class="navbar-section">
+    <a routerLink="" class="navbar-brand mr-2">Cocomerce</a>
+    <a routerLink="/shopping-cart" class="btn btn-link">Shopping-cart</a>
+    <ng-template #anonymousUser>
+      <a routerLink="/login" class="btn btn-link">Login</a>
+    </ng-template>
+    <div class="dropdown">
+      <a *ngIf="appUser; else anonymousUser" class="btn btn-link dropdown-toggle" tabindex="0">
+        {{appUser.name}} <i class="icon icon-caret"></i>
+      </a>
+      <!-- menu component -->
+      <ul class="menu">
+        <li><a routerLink="/my-orders" class="btn btn-link">My orders</a></li>
+        <ng-container *ngIf="appUser.isAdmin">
+          <li><a routerLink="/admin/orders" class="btn btn-link">Manage Orders</a></li>
+          <li><a routerLink="/admin/products" class="btn btn-link">Manage  Products</a></li>
+        </ng-container>
+        
+        <li><a  (click)="logout()"class="btn btn-link">deconnexion</a></li>
+      </ul>
+    </div>
+  </section>
+  
+</header>
