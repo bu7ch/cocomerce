@@ -20,6 +20,9 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { AuthService } from './auth.service';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +45,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    FormsModule
 
   ],
   providers: [AuthService],

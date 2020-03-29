@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Query } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,6 @@ export class CategoryService {
 
 
   getCategories() {
-    return this.db.list('categories').valueChanges(); // attention à la forme de retour "souvent" des Observables
+    return this.db.list('/categories').snapshotChanges()
   }
 }
