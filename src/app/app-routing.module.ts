@@ -14,6 +14,7 @@ import { UserService } from './user.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
+import { ProductService } from './product.service';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", component: HomeComponent },
@@ -33,6 +34,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers:[AuthGuard, AdminAuthGuard, UserService, CategoryService]
+  providers:[AuthGuard, AdminAuthGuard, UserService, CategoryService, ProductService]
 })
 export class AppRoutingModule {}

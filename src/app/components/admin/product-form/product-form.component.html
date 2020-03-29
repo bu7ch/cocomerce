@@ -1,20 +1,28 @@
-<form class="form-horizontal">
-  <div class="form-group">
+<form  #f="ngForm" class="form-horizontal" (ngSubmit)="save(f.value)">
+  <div class="form-group col-sm-6">
     <!-- titre/nom -->
-    <label class="form-label" for="input-name">Name</label>
-    <input type="text" class="form-input" placeholder="Name/title" />
+    <label class="form-label" for="name">Name</label>
+    <input   ngModel name="title" type="text" class="form-input" placeholder="Name/title"  />
+    </div>
     <!-- prix -->
-    <label class="form-label" for="input-price">Price</label>
-    <input type="text" class="form-input" placeholder="prix" />
+    <label class="form-label" for="price">Price</label>
+    <input  ngModel name="price" type="text" class="form-input"  placeholder="prix" />
     <!-- categorie -->
-    <select  id="category" class="form-select">
-      <option *ngFor="let category of categories$ | async" [value]="category.$key">{{category.name}}</option>
-    </select>
+    <br>
+    <div class="form-group">
+      <label class="form-label" for="name">Categories</label>
+      <select ngModel name="category" name="category" id="category" class="form-select">
+        <option>Choose an option</option>
+        <option *ngFor="let c of categories$ | async" [value]="c.key">
+          {{ c.payload.val().name }}
+        </option>
+      </select>
+    </div>
 
     <!-- imageURL -->
 
-    <label class="form-label" for="input-image">URL image</label>
-    <input type="URL" class="form-input" placeholder="lien d'image" />
-  </div>
+    <label class="form-label" for="imageUrl">URL image</label>
+    <input  ngModel name="imageUrl" type="URL" class="form-input" placeholder="lien d'image" />
+  
   <input type="submit"  class="btn btn-primary" value="envoyer">
 </form>
